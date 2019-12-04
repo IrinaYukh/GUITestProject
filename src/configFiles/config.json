@@ -1,0 +1,28 @@
+{"gui":
+  {
+    "browser": "chrome",
+    "landingPage": "http://icehrm-open.gamonoid.com/login.php",
+    "impWait": "20"
+  },
+  "admin":
+  {
+    "username": "admin",
+    "password": "admin"
+  },
+  "manager":
+  {
+    "username": "manager",
+    "password": "demouserpwd"
+  },
+  "user1":
+  {
+    "username": "user1",
+    "password": "demouserpwd"
+  },
+  "user2":
+  {
+    "username": "user2",
+    "password": "demouserpwd"
+  }
+
+}
