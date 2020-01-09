@@ -4,12 +4,15 @@ import config.JsonConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
 
     static WebDriver driver = null;
+    static Logger logger = LoggerFactory.getLogger(Driver.class);
 
     public static WebDriver getDriver(String browser)
     {
@@ -20,6 +23,8 @@ public class Driver {
 
         //Getting values from config.json file
         int impWait = Integer.parseInt((JsonConfig.getValue("gui","impWait")));
+
+        logger.info("Initial {} openning", browser);
 
         if (browser.equals("chrome"))
         {
@@ -43,9 +48,11 @@ public class Driver {
 //                driver.get("https://www.google.com");
             }
         }
-        else{
-            System.out.println("Error! Wrong browser name! Choose or chrome or firefox browser.");
+        else
+        {
+            logger.error("Error! Wrong browser name! Choose or chrome or firefox browser.");
         }
+
         return driver;
     }
 

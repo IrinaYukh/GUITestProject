@@ -8,6 +8,8 @@ import gui.pages.User1Page;
 import gui.pages.User2Page;
 import gui.pages.admin.AdminPage;
 import models.UserData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,6 +18,8 @@ public class LoginPageTest extends BaseTest {
 
 //        private LoginPage loginPage = PageFactory.initElements(getWebDriver(), LoginPage.class);
 //        private LoginPage loginPage = new LoginPage(getWebDriver());
+
+    private static final Logger logger = LoggerFactory.getLogger(LoginPageTest.class);
 
     // Pages initialization
     private PageObjectManager pageManager;
@@ -51,6 +55,7 @@ public class LoginPageTest extends BaseTest {
     // Verify successful login to the system with Admin values
     @Test
     public void admin_LoginTest() {
+        logger.info("Admin creation with param {} {}", admin_username, admin_pass);
         UserData admin = new UserData(admin_username, admin_pass);
 
         loginPage.loginToAccount(admin);
